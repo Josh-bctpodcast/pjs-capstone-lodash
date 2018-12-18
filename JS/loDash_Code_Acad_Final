@@ -1,0 +1,94 @@
+const _ = {
+clamp(mid, lo, hi){
+if (mid > hi) {
+    clampedValue = hi;
+  } else if (mid < lo) {
+    clampedValue = lo;
+  } else {
+    clampedValue = mid;
+  }; return clampedValue;
+		},
+inRange(num, start, end) {
+ if (num <= end && num > start && start < end) {
+   return true;
+ } else if (!end) {
+   end = start;
+   start = 0;
+   	if (num <= end && num > start && start < end) {
+   return true; } else {return false};
+ } else if (start >= end) {
+   a = start ;
+   b = end ;
+   start = b;
+   end = a;
+   if (num <= end && num > start && start < end) {
+   return true; } else {return false};
+ } else {return false}
+},
+words(inString){
+  stringArray = inString.split(' ');
+  return stringArray;
+},
+pad(str, len){
+if (str.length >= len) { return str};
+let endPad = Math.floor(((len - str.length) / 2) + (len%2));
+//console.log(endPad);
+let startPad = len - str.length - endPad;
+//console.log(startPad);
+return ' '.repeat(startPad) +str+ ' '.repeat(endPad);
+},
+has(obj1, key2)  {
+  if (obj1[key2]) {return true} else {return false};
+},
+invert(obj) {
+  if (obj) {
+    let invertObj = {};
+    for (let key in obj) {
+      let orignalValue = obj[key];
+      invertObj[orignalValue] = key;
+    }
+    return invertObj;
+  }
+},
+findKey(obj, bool) {
+for (let key in obj) {
+  let value = obj.key;
+  let boolReturn = bool(value);
+  if (boolReturn == true) {
+    return key;
+    } else return undefined;
+  }
+},
+drop(arr, num) {
+  if (num) {
+  return outArr = arr.slice(num, arr.length);}
+		else {return outArr = arr.slice(1, arr.length);}
+},
+dropWhile(arr, pred) {
+  let dropNum = arr.findIndex((element, index) => !pred(element, index, arr));
+  let sArr = this.drop(arr, dropNum);
+  return sArr;
+},
+chunk(arr, sz) {
+  let chunked = [];
+  let rem = (arr.length % sz);
+  let playSize = sz;
+       //If there is a remainder, this adds an extra array to catch overflow
+	if (rem) {
+    let numArr = (Math.floor(arr.length/playSize) + 1);
+    } else {
+   let numArr = (Math.floor(arr.length/playSize));
+    };
+  //ensure size input is valid & more than 1, otherwise assign it as 1
+	if (playSize<1) {let playSize = 1;};
+	//create array of arrays, slicing the 1st tot each time
+for (let tot = 0; tot < arr.length; tot+=sz){
+	let chunk = arr.slice(tot, (tot + sz));
+  chunked.push(chunk);
+				}
+  return chunked;
+},
+};
+console.log(_.chunk(['1', '2', '3', '4', '5'], 13))
+// Do not write or modify code below this line.
+module.exports = _;
