@@ -56,8 +56,8 @@ for (let key in obj) {
   let boolReturn = bool(value);
   if (boolReturn == true) {
     return key;
-    } else return undefined;
-  }
+    } 
+  } return undefined;
 },
 drop(arr, num) {
   if (num) {
